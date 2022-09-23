@@ -7,9 +7,6 @@ Com o postgres pronto para uso, siga essas instruções.
 
 - Crie um database com nome **ReservaCarros**.
 
-- Obs: Configuração do usuario, host(localhost), database(ReservaCarros),
-username(postgres), pwd(AAAaaa123), port_id(5432).
-
 - Faça o download do arquivo **reserva_carros.sql** que esta no git. 
 
 - após isso Selecione a opção **CREAT TABLE CARS** e **CREAT TABLE ReservedCar**
