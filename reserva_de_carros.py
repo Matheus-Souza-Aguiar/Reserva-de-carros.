@@ -205,7 +205,7 @@ def option_cars_two(ids1, reserve_outset, reserve_last):
                             WHERE cars.idcar <> {ids1} """, conn)
     print(check)
     idcar = input('Informe o Id do carro que deseja reservar? ')
-    return checkout(idcar, reserve_outset, reserve_last)
+    return check_id_car_option_two(idcar, ids1, reserve_outset, reserve_last)
 
 
 def option_cars_three(reserve_outset, reserve_last):
@@ -236,6 +236,26 @@ def check_id_car(idcar, ids1, reserve_outset, reserve_last):
         print(type(check_id))
         print(type(idcar))
         print(f'Não encontrado!{idcar},{check_id}')
+        return check_cars_in_reverse(reserve_outset, reserve_last)
+
+
+def check_id_car_option_two(idcar, ids1, reserve_outset, reserve_last):
+    check_id = []
+    check = (f"""select cars.idcar, cars.modelcar, cars.yearcar
+                                from cars
+                               WHERE cars.idcar <> {ids1}""")
+    cursor.execute(check)
+    list_car_id = cursor.fetchall()
+    for res in list_car_id:
+        id = res[0]
+        idcarro = str(id)
+        check_id.append(idcarro)
+
+    if idcar in check_id:
+        print('encontrado')
+        return checkout(idcar, reserve_outset, reserve_last)
+    else:
+        print(f'Não encontrado, Informe o id novamente, por favor!')
         return check_cars_in_reverse(reserve_outset, reserve_last)
 
 
